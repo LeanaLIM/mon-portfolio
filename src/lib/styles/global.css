@@ -1,0 +1,52 @@
+:root {
+	/* Couleurs */
+	--color-bg: #000000;
+	--color-text: #FFFFFF;
+	--color-text-muted: #A0A0A0;
+	
+	/* Espacements */
+	--space-xs: 0.5rem;
+	--space-sm: 1rem;
+	--space-md: 2rem;
+	--space-lg: 4rem;
+	--space-xl: 6rem;
+	
+	/* Typographie */
+	--font-base: 1rem;
+	--font-lg: 1.25rem;
+	--font-xl: 1.5rem;
+	--font-2xl: 2rem;
+	--font-3xl: 3rem;
+	
+	/* Breakpoints */
+	/* Mobile: < 640px */
+	/* Tablet: >= 640px */
+	/* Laptop: >= 1024px */
+	/* Desktop: >= 1280px */
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: system-ui, -apple-system, sans-serif;
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	overflow-x: hidden;
+	line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.2;
+	font-weight: 600;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
