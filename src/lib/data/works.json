@@ -1,0 +1,37 @@
+[  
+    {
+        "title": "Enerviz",
+        "description": "An interactive data visualization platform designed to track and analyze France's energy landscape. Developed as a team, this tool transforms complex datasets into intuitive maps and charts to compare national energy production versus consumption.",
+        "year": 2023,
+        "link": "https://danphannguyen.github.io/iutge-project-enerviz/",
+        "img": "/dataviz.png"
+    },
+    {
+        "title": "Labyrinth",
+        "description": "A terminal-based maze game developed in C, focusing on procedural generation and efficient memory management. This project implements custom pathfinding algorithms and a collision system, delivering a classic arcade experience directly within the CLI environment.",
+        "year": 2024,
+        "link": "https://github.com/LeanaLIM/labyrinth",
+        "img": "/labyrinth.png"
+    },
+    {
+        "title": "Portrait Chinois",
+        "description": "A creative web introduction and my very first frontend project. Built as an analogical portrait, it uses interactive metaphors to showcase my personality and interests, marking the beginning of my journey into web development and UI design.",
+        "year": 2023,
+        "link": "https://leanalim.github.io/Portrait-Chinois",
+        "img": "/portrait-chinois.png"
+    },
+    {
+        "title": "Hangman",
+        "description": "A modern take on the classic word game built with Next.js. This project features a clean, minimalist interface that integrates with a dictionary API to fetch random words, focusing on dynamic state management and responsive user interactions. (API Down)",
+        "year": 2024,
+        "link": "https://hangman-project-gold.vercel.app",
+        "img": "/hangman.png"
+    },
+    {
+        "title": "MiniBlog",
+        "description": "A minimalist blog platform built with PHP and MySQL, focusing on clean architecture and performance.",
+        "year": 2023,
+        "link": "https://github.com/leanalim/miniblog",
+        "img": "/blog.png"
+    }
+]
