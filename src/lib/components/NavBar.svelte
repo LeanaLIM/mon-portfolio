@@ -113,7 +113,7 @@ nav {
     width: 100%;
     z-index: 100;
     mix-blend-mode: difference;
-    background: transparent; 
+    backdrop-filter: blur(4px);
 }
 
 .nav-content {
@@ -121,6 +121,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: var(--space-sm);
+    backdrop-filter: blur(4px);
 }
 
 .logo {

@@ -1,36 +1,68 @@
 <script>
-// @ts-nocheck
+    // @ts-nocheck
+	import works from '$lib/data/works.json';
+	import { onMount } from 'svelte';
+	import { gsap } from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-    import works from '$lib/data/works.json';
-    import { onMount } from 'svelte';
-    import { gsap } from 'gsap';
-    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	gsap.registerPlugin(ScrollTrigger);
 
-    gsap.registerPlugin(ScrollTrigger);
+	let section;
+	let cardsWrapper;
 
-    let section;
-    let cardsWrapper;
+	const getScrollableWidth = () => {
+		const cards = Array.from(
+			cardsWrapper.querySelectorAll('.work-card')
+		);
 
-    onMount(() => {
-        const totalScrollWidth = cardsWrapper.scrollWidth - window.innerWidth;
+		const totalCardsWidth = cards
+			.map(card => card.getBoundingClientRect().width)
+			.reduce((a, b) => a + b, 0);
 
-        const ctx = gsap.context(() => {
-            gsap.to(cardsWrapper, {
-                x: -totalScrollWidth,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: section,
-                    pin: true,
-                    scrub: 1,
-                    start: "top top",
-                    end: () => `+=${totalScrollWidth}`,
-                    invalidateOnRefresh: true,
-                }
-            });
-        });
+		const gap = parseFloat(
+			getComputedStyle(cardsWrapper).gap || 0
+		);
 
-        return () => ctx.revert();
-    });
+		return totalCardsWidth + gap * (cards.length - 1);
+	};
+
+	onMount(() => {
+		if (!works.length) return;
+
+		const ctx = gsap.context(() => {
+			const update = () => {
+				const scrollWidth =
+					getScrollableWidth() - window.innerWidth + 100;
+
+				ScrollTrigger.getAll().forEach(t => t.kill());
+
+				gsap.to(cardsWrapper, {
+					x: -Math.max(0, scrollWidth),
+					ease: 'none',
+					scrollTrigger: {
+						trigger: section,
+						pin: true,
+						scrub: 1,
+						start: 'top top',
+						end: `+=${scrollWidth}`,
+						invalidateOnRefresh: true
+					}
+				});
+			};
+
+			requestAnimationFrame(update);
+
+			window.addEventListener('resize', update);
+			ScrollTrigger.addEventListener('refreshInit', update);
+
+			return () => {
+				window.removeEventListener('resize', update);
+				ScrollTrigger.removeEventListener('refreshInit', update);
+			};
+		});
+
+		return () => ctx.revert();
+	});
 </script>
 
 <section id="work-section" class="works-container" bind:this={section}>
