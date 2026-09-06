@@ -137,7 +137,7 @@
 	}
 }
 
-@media (max-width: var(--breakpoint-sm)) {
+@media (max-width: 640px) {
 	.title-homepage {
 		bottom: var(--space-sm);
 		gap: var(--space-xs);
